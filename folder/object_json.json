@@ -1,14 +1,16 @@
-{
-    "title": "Супер название 1",
-    "img_url": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-    "description": "Супер описание к объекту 1",
-    "date": "01.01.2023",
-    "code": "https://bogdan7520.github.io/new_test_tg_bot_web/"
-},
-{
-    "title": "Супер название 2",
-    "img_url": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
-    "description": "Супер описание к объекту 2",
-    "date": "02.01.2023",
-    "code": "https://bogdan7520.github.io/new_test_tg_bot_web/"
-}
+[
+    {
+        "title": "Супер название 1",
+        "img_url": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+        "description": "Супер описание к объекту 1",
+        "date": "01.01.2023",
+        "code": "https://bogdan7520.github.io/new_test_tg_bot_web/"
+    },
+    {
+        "title": "Супер название 2",
+        "img_url": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+        "description": "Супер описание к объекту 2",
+        "date": "02.01.2023",
+        "code": "https://bogdan7520.github.io/new_test_tg_bot_web/"
+    }
+]
