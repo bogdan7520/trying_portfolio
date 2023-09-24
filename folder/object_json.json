@@ -19,5 +19,12 @@
         "description": "Код для передвигания объектов на JavaScript",
         "date": "02.01.2023",
         "code": "https://bogdan7520.github.io/trying_portfolio/folder/move_obj_project.html"
+    },
+    {
+        "title": "Шифровальщик",
+        "img_url": "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
+        "description": "Шифровальщик",
+        "date": "24.09.2023",
+        "code": "https://bogdan7520.github.io/trying_portfolio/folder/cipher_proggram.html"
     }
 ]
