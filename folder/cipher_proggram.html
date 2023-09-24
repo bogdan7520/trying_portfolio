@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Cipher</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var confirm = confirm("Ok for encrypt\nAnd second button for decipher");
+    var nums = "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,+"
+    var letters = "Аа, Бб, Вв, Гг, Дд, Ее, Ёё, Жж, Зз, Ии, Йй, Кк, Лл, Мм, Нн, Оо, Пп, Рр, Сс, Тт, Уу, Фф, Хх, Цц, Чч, Шш, Щщ, Ъъ, Ыы, Ьь, Ээ, Юю, Яя,  "
+    var nums_array = []
+    var letters_array = []
+    for (var i = 0; i < nums.split(",").length; i++) {
+      nums_array.push(nums.split(",")[i])
+      letters_array.push(letters.split(", ")[i].split("")[1])
+    }
+    if (confirm) {
+      var add = getRandom(3, 9);
+      var multiply = getRandom(3, 9);
+      var list_length = [];
+      var code = String(add) + String(multiply);
+
+      var text = prompt("Text: ").toLowerCase();
+      var text_arr = text.split("");
+      var text_encrypted = code;
+
+      for (var i = 0; i < text_arr.length; i++) {
+        if (letters_array.indexOf(text_arr[i]) != -1){
+          text_encrypted += "_" + String((Number(nums_array[letters_array.indexOf(text_arr[i])]) + add) * multiply);
+        } else {
+          text_encrypted += "_" + String(nums_array[nums_array.length + letters_array.indexOf(text_arr[i])]);
+        }
+      }
+      alert(text_encrypted)
+    } else {
+      var code_for_decipher = prompt("Code: ");
+      var text_for_decipher = prompt("Text: ");
+      var arr_for_decipher = text_for_decipher.split("_");
+      arr_for_decipher = arr_for_decipher.slice(1);
+      var new_text = ""
+      var code_for_decipher_arr = code_for_decipher.split("");
+      for (var i = 0; i < arr_for_decipher.length; i++) {
+        var code_text_num = (Number(arr_for_decipher[i]) / Number(code_for_decipher_arr[1])) - Number(code_for_decipher_arr[0])
+        if (arr_for_decipher[i] != "+") {
+          new_text += letters_array[nums_array.indexOf(String(code_text_num))];
+        } else {
+          new_text += " ";
+        }
+      }
+      alert(new_text)
+    }
+    function getRandom(min, max) {
+      return Math.floor(Math.random() * (max - min) + min);
+    }
+
+    // function getRandomInt(max) {
+    //   return Math.floor(Math.random() * max);
+    // }
+  </script>
+</body>
+</html>
