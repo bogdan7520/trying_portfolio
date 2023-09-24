@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Move Object</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700');
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .move {
+      position: absolute;
+      cursor: grab;
+      user-select: none;
+    }
+    img {
+      height: 100px;
+      left: calc(50vw - 150px);
+      top: calc(50vh - 150px);
+    }
+    .title {
+      padding: 10px 20px;
+      border-radius: 10px;
+      background: #98d29c;
+      font-size: 20px;
+      box-shadow: 0 0 5px rgba(91, 108, 89, 0.5);
+      left: 50vw;
+      top: 50vh;
+      font-weight: bold;
+    }
+    .box {
+      box-shadow: 0 0 5px rgba(51, 51, 51, 0.5);
+      border-radius: 5px;
+      padding: 20px;
+      max-width: 250px;
+      background: #fff;
+      top: 100px;
+      left: 100px;
+    }
+    .box h2 {margin-bottom: 10px}
+  </style>
+</head>
+<body>
+  <img class="move" draggable="false" src="img/ball_img.png" alt="img">
+  <div class="title move">Text</div>
+  <div class="box move">
+    <h2>Lorem ipsum.</h2>
+    <p>Lorem ipsum dolor sit amet,
+      consectetur adipisicing elit.
+      Officiis voluptatem natus,
+      pariatur odit voluptatum excepturi
+      sint sapiente, doloremque tempore esse!</p>
+  </div>
+  <script type="text/javascript">
+    var images = document.querySelectorAll(".move");
+    images.forEach(function (img) {
+      var minusX = 0;
+      var minusY = 0;
+
+      function listener(e) {
+        img.style.left = e.pageX - minusX + "px";
+        img.style.top = e.pageY - minusY + "px";
+      };
+      img.addEventListener('mousedown', function (e) {
+        document.addEventListener('mousemove', listener);
+        img.style.cursor = "grabbing";
+        minusX = e.clientX - img.getBoundingClientRect().left;
+        minusY = e.clientY - img.getBoundingClientRect().top;
+      });
+
+      document.addEventListener('mouseup', function () {
+        document.removeEventListener('mousemove', listener);
+        img.style.cursor = "grab";
+      });
+    });
+
+  </script>
+</body>
+</html>
